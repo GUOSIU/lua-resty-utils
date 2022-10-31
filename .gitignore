@@ -1,0 +1,5 @@
+.rocks
+lua_modules
+lua_types
+nginx/temp
+nginx/logs
