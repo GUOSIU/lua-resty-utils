@@ -40,4 +40,24 @@ __.file_list = function(path)
 
 end
 
+-- 子目录列表
+__.path_list = function(path)
+
+    local list, index = {}, 0
+
+    for f in lfs.dir(path) do
+        if f ~= "." and f ~= '..' and f ~= "_bk" then
+            local p = path .. "/" .. f
+            local t = lfs.attributes(p).mode
+            if t == "directory" then
+                index = index + 1
+                list[index] = f
+            end
+        end
+    end
+
+    return list
+
+end
+
 return __
